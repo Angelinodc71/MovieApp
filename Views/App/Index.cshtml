@@ -1,0 +1,24 @@
+@model IEnumerable<MovieViewModel>
+@{
+  ViewBag.Title = "Home Page";
+}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Género</th>
+      <th>
+        <a asp-controller="App" asp-action="AddOrEdit" class="btn btn-primary">Agregar película</a>
+      </th>
+    </tr>
+  </thead>
+  @foreach (var item in Model)
+  {
+    <tr>
+      <td>@item.name</td>
+      <td>@item.genre</td>
+      <td><a asp-action="AddOrEdit" asp-route-id="@item.id"></a></td>
+    </tr>      
+  }
+</table>
+<a asp-controller="App" asp-action="About">Acerca de</a>
