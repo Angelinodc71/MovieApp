@@ -27,7 +27,7 @@ using Movie_App.ViewModel;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8f8fe7729b27eacaba4f6afe0cc291c3078d6390", @"/Views/App/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dc24d2b318a95d8b647dad3a4466e83228660d2b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f2e250af5a70cbd822d31274c6c72e8f8a7346d0", @"/Views/_ViewImports.cshtml")]
     public class Views_App__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998
