@@ -9,11 +9,6 @@ namespace Movie_App.Controllers
     public class AppController : Controller
     {
         private static List<MovieViewModel> _movies = new List<MovieViewModel>();
-
-        public object MessageBox { get; private set; }
-        public object MessageBoxButtons { get; private set; }
-        public object MessageBoxIcon { get; private set; }
-
         public IActionResult Index()
         {
             return View(_movies);
@@ -30,15 +25,19 @@ namespace Movie_App.Controllers
         {
             var movie = _movies.FirstOrDefault(x => x.id == model.id);
 
-            if (ModelState.IsValid && movie == null) 
+            if (ModelState.IsValid) 
             {
-                _movies.Add(model);
+                if (movie == null) 
+                {
+                    model.id = Guid.NewGuid();
+                    _movies.Add(model);
+                }
+                else 
+                {
+                    movie.genre = model.genre;
+                    movie.name = model.name;
+                }
                 return RedirectToAction(nameof(Index));
-            }
-            else 
-            {
-                movie.genre = model.genre;
-                movie.name = model.name;
             }
             return View();
         }
@@ -47,6 +46,11 @@ namespace Movie_App.Controllers
         public IActionResult About()
         {
             return View();
+        }
+        public IActionResult Delete(Guid id) 
+        {
+            _movies.Remove(_movies.FirstOrDefault(x => x.id == id));
+            return RedirectToAction(nameof(Index));
         }
     }
 }

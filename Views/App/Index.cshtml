@@ -17,7 +17,9 @@
     <tr>
       <td>@item.name</td>
       <td>@item.genre</td>
-      <td><a asp-action="AddOrEdit" asp-route-id="@item.id"></a></td>
+      <td><a asp-action="AddOrEdit" asp-route-id="@item.id">Editar</a> |
+      <a asp-action="Delete" asp-route-id="@item.id" onclick="return confirm('Estas seguro de eliminar la película')">Eliminar</a></td>
+
     </tr>      
   }
 </table>
